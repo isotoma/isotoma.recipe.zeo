@@ -26,7 +26,7 @@ class Recipe:
         options['bin-directory'] = buildout['buildout']['bin-directory']
         options['scripts'] = '' # suppress script generation.
 
-        _, self.zodb_ws = self.egg.working_set()
+        _, self.zodb_ws = self.egg.working_set(["isotoma.recipe.zeo"])
 
         # Relative path support for the generated scripts
         relative_paths = options.get(
@@ -262,8 +262,6 @@ class Recipe:
         if self.zeo_conf is None:
             self.zeo_conf = os.path.join(location, 'etc', 'zeo.conf')
 
-        _, ws = self.egg.working_set(['isotoma.recipe.zeoserver'])
-
         path = (os.path.pathsep.join(self.ws_locations)
                 + os.path.pathsep
                 + os.path.pathsep.join(self.module_paths))
@@ -271,8 +269,8 @@ class Recipe:
         import os; os.environ['PYTHONPATH'] = %r
         """.strip() % path
         zc.buildout.easy_install.scripts(
-            [(self.name, 'isotoma.recipe.zeoserver.ctl', 'main')],
-            ws, options['executable'], options['bin-directory'],
+            [(self.name, 'isotoma.recipe.zeo.ctl', 'main')],
+            self.zodb_ws, options['executable'], options['bin-directory'],
             initialization = initialization,
             arguments = ('\n        ["-C", %r]'
                          '\n        + sys.argv[1:]'
@@ -349,16 +347,16 @@ class Recipe:
                                "opts['-B'] or blob_dir")
 
             # Make sure the recipe itself and its dependencies are on the path
-            extra_paths = [ws.by_key[options['recipe']].location]
-            extra_paths.append(ws.by_key['zc.buildout'].location)
-            extra_paths.append(ws.by_key['zc.recipe.egg'].location)
+            #extra_paths = [self.zodb_ws.by_key[options['recipe']].location]
+            #extra_paths.append(self.zodb_ws.by_key['zc.buildout'].location)
+            #extra_paths.append(self.zodb_ws.by_key['zc.recipe.egg'].location)
             zc.buildout.easy_install.scripts(
-                [('zeopack', 'isotoma.recipe.zeoserver.pack', 'main')],
+                [('zeopack', 'isotoma.recipe.zeo.pack', 'main')],
                 self.zodb_ws, options['executable'], options['bin-directory'],
                 initialization=arguments_info,
                 arguments=', '.join(arg_list),
                 relative_paths=self._relative_paths,
-                extra_paths=extra_paths + self.module_paths,
+                extra_paths=self.module_paths,
                 )
 
         # The backup script, pointing to repozo.py
