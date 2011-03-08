@@ -1,0 +1,118 @@
+Changelog
+=========
+
+2.0.0 - 2011-03-08
+------------------
+
+- Friendly fork to patch sys.path behaviour in our deployments.
+
+1.2.0 - 2010-10-18
+------------------
+
+- Only require a ``nt_svcutils`` distribution on Windows.
+  [hannosch]
+
+1.1.1 - 2010-07-20
+------------------
+
+- Fixed -B option being required for along with the -S option.
+  [vangheem]
+
+- Added documentation for using the zeopack script with mount points.
+  [vangheem]
+
+1.1 - 2010-07-18
+----------------
+
+- No changes.
+
+1.1b1 - 2010-07-02
+------------------
+
+- Implemented Windows support and support for running ZEO as a Windows service.
+  We depend on the new nt_svcutils distribution to provide this support.
+  [baijum, hannosch]
+
+- The FileStorage component of ZODB 3.9 now supports blobs natively,
+  so no need to use BlobStorage proxy for it anymore.
+  [baijum, hannosch]
+
+- Added ``extra-paths`` option to add additional modules paths.
+  [baijum]
+
+- Fixed ZEO packing of mounted storage.
+  [vangheem]
+
+- Added -B option to the ``zeopack`` script to specify the location of the
+  blob storage.
+  [vangheem]
+
+1.1a2 - 2010-05-10
+------------------
+
+- Added support for the ``pack-keep-old`` option introduced in ZODB 3.9.
+  [hannosch]
+
+1.1a1 - 2010-04-27
+------------------
+
+- Added support for the ``pack-gc`` option introduced in ZODB 3.9.
+  [hannosch]
+
+- Always create a blob-storage by default.
+  [hannosch]
+
+- Require at least ZODB 3.8 and simplify the ``zeopack`` script.
+  [hannosch]
+
+- Various documentation updates.
+  [hannosch]
+
+- Use the new ``zope.mkzeoinstance`` package, which makes the recipe compatible
+  with ZODB 3.9.5+.
+  [hannosch]
+
+- Removed unmaintained win32 specific tests and old zope2 test mockups.
+  [hannosch]
+
+- Removed testing dependency on ``zope.testing`` and refactored testing setup.
+  [hannosch]
+
+1.0 - 2010-04-05
+----------------
+
+- Depend on and always include ZopeUndo. While it's only needed for Zope 2, the
+  distribution is so tiny, it doesn't hurt for non-Zope 2 ZEO servers.
+  [hannosch]
+
+1.0b1 - 2010-03-19
+------------------
+
+- Fixed issue with egg paths for the zeopack script.
+  [davisagli]
+
+- Added support for setting ZEO log level.
+  [baijum]
+
+1.0a2 - 2009-12-03
+------------------
+
+* Set up logging configuration that is needed by ZODB.blob.
+  [davisagli]
+
+* Set shared_blob_dir to True when initializing the ClientStorage used
+  by the pack script, since it will be using the same blob directory
+  as the ZEO server.
+  [davisagli]
+
+1.0a1 - 2009-12-03
+------------------
+
+* Updated and cleaned up after renaming.
+  [hannosch]
+
+* Added compatibility with eggified Zopes (Zope >= 2.12).
+  [davisagli]
+
+* Initial implementation based on plone.recipe.zope2zeoserver.
+  [plone]
