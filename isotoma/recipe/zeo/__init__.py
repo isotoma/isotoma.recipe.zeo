@@ -353,7 +353,7 @@ class Recipe:
             extra_paths.append(ws.by_key['zc.buildout'].location)
             extra_paths.append(ws.by_key['zc.recipe.egg'].location)
             zc.buildout.easy_install.scripts(
-                [('zeopack', 'plone.recipe.zeoserver.pack', 'main')],
+                [('zeopack', 'isotoma.recipe.zeoserver.pack', 'main')],
                 self.zodb_ws, options['executable'], options['bin-directory'],
                 initialization=arguments_info,
                 arguments=', '.join(arg_list),
