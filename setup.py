@@ -1,7 +1,7 @@
 import sys
 from setuptools import setup, find_packages
 
-version = '2.0.1'
+version = '2.0.2'
 
 additional_install_requires = []
 
@@ -26,7 +26,7 @@ setup(
     ],
     packages = find_packages(),
     include_package_data = True,
-    package_dir = {'': ''},
+    package_dir = find_packages(exclude=['ez_setup']),
     namespace_packages = ['isotoma', 'isotoma.recipe'],
     install_requires = [
         'zc.buildout',
