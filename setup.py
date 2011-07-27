@@ -24,9 +24,10 @@ setup(
         "Framework :: Zope2",
         "Programming Language :: Python",
     ],
-    packages = find_packages(),
+#    packages = find_packages(),
     include_package_data = True,
-    package_dir = find_packages(exclude=['ez_setup']),
+#    package_dir = find_packages(exclude=['ez_setup']),
+    packages=find_packages(exclude=['ez_setup']),
     namespace_packages = ['isotoma', 'isotoma.recipe'],
     install_requires = [
         'zc.buildout',
