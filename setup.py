@@ -38,6 +38,6 @@ setup(
     ] + additional_install_requires,
     zip_safe=False,
     entry_points = {
-        'zc.buildout': ['default = isotoma.recipe.zeo:Recipe'],
+        'zc.buildout': ['default = isotoma.recipe.zeo.recipe:Recipe'],
     },
     )
