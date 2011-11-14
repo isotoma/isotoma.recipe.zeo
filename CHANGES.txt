@@ -1,6 +1,16 @@
 Changelog
 =========
 
+2.0.1 (unreleased)
+------------------
+
+- Add a list of imports for monkey patch injection:
+
+    [zeoserver]
+    eggs = isotoma.zope.groupreadableblobstorage
+    import = isotoma.zope.groupreadableblobstorage
+
+
 2.0.0 - 2011-03-08
 ------------------
 

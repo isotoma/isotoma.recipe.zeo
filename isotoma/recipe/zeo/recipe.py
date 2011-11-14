@@ -134,6 +134,12 @@ class Recipe:
             zeo_conf_additional = options.get('zeo-conf-additional', '')
             storage_number = options.get('storage-number', '1')
 
+            import_list = []
+            for imp in options.get("import", "").strip().splitlines():
+                if imp:
+                    import_list.append(imp)
+            imports = "\n".join(["%%import %s" % imp for imp in import_list])
+
             monitor_address = options.get('monitor-address', '')
             if monitor_address:
                 monitor_address = 'monitor-address %s' % monitor_address
@@ -232,6 +238,7 @@ class Recipe:
                 zeo_conf_additional = zeo_conf_additional,
                 monitor_address = monitor_address,
                 zeo_log_level = zeo_log_level,
+                imports = imports,
                 )
 
         zeo_conf_path = os.path.join(location, 'etc', 'zeo.conf')
@@ -485,6 +492,8 @@ authentication_template = """
 # The template used to build zeo.conf
 zeo_conf_template = """\
 %%define INSTANCE %(instance_home)s
+
+%(imports)s
 
 <zeo>
   address %(zeo_address)s
