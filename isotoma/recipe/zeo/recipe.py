@@ -135,7 +135,7 @@ class Recipe:
             storage_number = options.get('storage-number', '1')
 
             import_list = []
-            for imp in options.get("import", "").strip().splitlines():
+            for imp in options.get("import", "").strip().split('\n'):
                 if imp:
                     import_list.append(imp)
             imports = "\n".join(["%%import %s" % imp for imp in import_list])
