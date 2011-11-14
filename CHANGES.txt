@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.2 (2011-11-14)
 ------------------
 
 - Add a list of imports for monkey patch injection:
