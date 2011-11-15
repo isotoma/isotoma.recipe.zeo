@@ -12,7 +12,7 @@ if sys.platform[:3].lower() == "win":
 setup(
     name = "isotoma.recipe.zeo",
     version = version,
-    description = "Custom version of isotoma.recipe.zeoserver",
+    description = "Custom version of plone.recipe.zeoserver",
     long_description = open('README.txt').read() + '\n' +
                        open('CHANGES.txt').read(),
     license = "ZPL 2.1",
@@ -24,9 +24,7 @@ setup(
         "Framework :: Zope2",
         "Programming Language :: Python",
     ],
-#    packages = find_packages(),
     include_package_data = True,
-#    package_dir = find_packages(exclude=['ez_setup']),
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages = ['isotoma', 'isotoma.recipe'],
     install_requires = [
