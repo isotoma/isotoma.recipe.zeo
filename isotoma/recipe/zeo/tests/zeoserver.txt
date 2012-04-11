@@ -1,8 +1,8 @@
 ======================
-isotoma.recipe.zeoserver
+isotoma.recipe.eoserver
 ======================
 
-This is the doctest for isotoma.recipe.zeoserver. It ensures the template
+This is the doctest for isotoma.recipe.zeo. It ensures the template
 works fine. It is based on zc.buildout testing module::
 
     >>> from zc.buildout.testing import *
@@ -12,7 +12,7 @@ works fine. It is based on zc.buildout testing module::
     >>> WINDOWS = sys.platform == 'win32'
 
 Let's create a minimum buildout that uses the current
-isotoma.recipe.zeoserver::
+isotoma.recipe.zeo::
 
     >>> simplest = '''
     ... [buildout]
@@ -20,7 +20,7 @@ isotoma.recipe.zeoserver::
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... ''' % globals()
     >>> write('buildout.cfg', simplest)
 
@@ -93,7 +93,7 @@ to use `rotatezlogs`::
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-log-custom =
     ...     %%import iw.rotatezlogs
     ...     <rotatelogfile>
@@ -143,7 +143,7 @@ as `error`::
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-log-level = error
     ...
     ... ''' % globals())
@@ -185,7 +185,7 @@ the localhost address 127.0.0.1:
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-address = 8001
     ...
     ... ''' % globals())
@@ -216,7 +216,7 @@ When a host:port combination is provided, the recipe must split it correctly::
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-address = 192.168.0.11:8001
     ...
     ... ''' % globals())
@@ -248,7 +248,7 @@ to a Unix socket file::
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-address = /path/to/zeo.socket
     ...
     ... ''' % globals())
@@ -283,7 +283,7 @@ The recipe supports the generation of scripts with relative paths.
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-address = /path/to/zeo.socket
     ... ''' % globals())
     >>> print system(join('bin', 'buildout')),
@@ -311,7 +311,7 @@ The recipe support extra paths.
     ... find-links = %(sample_buildout)s/eggs
     ...
     ... [zeo]
-    ... recipe = isotoma.recipe.zeoserver
+    ... recipe = isotoma.recipe.zeo
     ... zeo-address = /path/to/zeo.socket
     ... extra-paths = /path/to/test-1.0.egg
     ... ''' % globals())

@@ -14,7 +14,7 @@ from zc.buildout.testing import install_develop
 
 def setUp(test):
     buildoutSetUp(test)
-    install_develop('isotoma.recipe.zeoserver', test)
+    install_develop('isotoma.recipe.zeo', test)
     install('zc.recipe.egg', test)
     if sys.platform[:3].lower() == "win":
         install('nt_svcutils', test)
